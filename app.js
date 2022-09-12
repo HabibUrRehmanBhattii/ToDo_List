@@ -45,7 +45,7 @@ app.get("/about", function(req, res){
 });
 
 //sever is staring for project node/nodemon
-app.listen(3000, function (req, res) {
+app.listen(process.env.PORT || 3000, function (req, res) {
 	console.log("Sever is started on port 3000");
 });
 
