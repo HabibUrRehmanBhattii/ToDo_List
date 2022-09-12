@@ -3,8 +3,8 @@ const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js")
 
 const app = express();
-let items = ["Milk", "Bread", "Eggs"];
-let workItems = [];
+const items = ["Milk", "Bread", "Eggs"];
+const workItems = [];
 app.use(bodyParser.urlencoded({ extended: true }));
 
 
@@ -16,7 +16,7 @@ app.set("view engine", "ejs");
 //sending data to html
 app.get("/", function (req, res) {
 
-	let day = date.getDate();
+	const day = date.getDate();
 
 	// render is used for ejs to change the data
 	res.render("list", { listTitle: day, newListItems: items });
@@ -25,7 +25,7 @@ app.get("/", function (req, res) {
 // Cating the data after pressing submit
 app.post("/", function (req, res) {
 
-	let item = req.body.newItem;
+	const item = req.body.newItem;
 	if (req.body.list === "Work") {
 		workItems.push(item);
 		res.redirect("/work");
